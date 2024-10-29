@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  background-color: slategrey;
+  /* cursor: none; */
+}
+
+.custom-cursor{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: difference;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid black;
+}
+
+/* Ensure no outline or border change on focus and active */
+.explore-button {
+  outline: none !important;
+  border: 2px solid white; /* Set the border color explicitly */
+  box-shadow: none !important;
+  background: transparent;
+}
+
+.explore-button:focus,
+.explore-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: white !important; /* Maintain the white border on focus */
+}
+
+.explore-button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+
