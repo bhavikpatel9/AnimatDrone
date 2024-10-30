@@ -28,8 +28,9 @@ const HeroSection = () => {
                 scrollTrigger: {
                     trigger: `#${container.id}`,
                     start: 'top center',
-                    end: 'bottom 40%',
+                    end: 'bottom 45%',
                     scrub: true,
+                    // markers: true
                 }
             });
 
@@ -50,7 +51,7 @@ const HeroSection = () => {
                 <div key={drone.id} className="drone-container  flex justify-around">
                     <Left uniqueId={drone.idName} />
                     <div
-                        className={`w-[500px] h-[300px] shrink-0 ${drone.id === 1 ? 'mt-60' : 'mt-32 scale-150 opacity-0'} flex items-center justify-center flex-col `}
+                        className={`w-[500px] h-[300px]  border-red-950 shrink-0 ${drone.id === 1 ? 'mt-60' : 'mt-32 scale-150 opacity-0'} flex items-center justify-center flex-col `}
                         id={drone.idName}
                     >
                         <img src={drone.img} alt={`Drone ${drone.id}`} />
@@ -60,7 +61,7 @@ const HeroSection = () => {
                             </button>
                         </Link>
                     </div>
-                    <Right />
+                    <Right uniqueId={drone.idName}/>
                 </div>
             ))}
             <div className='w-full h-[280px]'></div>
