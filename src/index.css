@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Itim&family=Quicksand:wght@300..700&family=Rubik+Wet+Paint&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,6 +11,11 @@ body{
   overflow-x: hidden;
   background-color: slategrey;
   /* cursor: none; */
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  overflow-y: hidden;
 }
 
 .custom-cursor{
@@ -30,6 +36,15 @@ body{
   border: 2px solid black;
 }
 
+/* Add this to your CSS file or in a <style> tag */
+.radial-bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 1%, #202424 99%);
+}
+
+
 /* Ensure no outline or border change on focus and active */
 .explore-button {
   outline: none !important;
@@ -49,6 +64,15 @@ body{
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* Override slick-slide padding */
+.slick-slide {
+  display: flex !important; /* Ensure flex container */
+  align-items: center;      /* Center vertically */
+  justify-content: center;  /* Center horizontally */
+}
+
+
 
 
 

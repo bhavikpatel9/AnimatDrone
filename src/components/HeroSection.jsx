@@ -4,29 +4,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from "react-router-dom";
 import Left from './Left';
 import Right from './Right';
+import { drones } from '../utils/Data';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
-    const drones = [
-        { id: 1, idName: 'container1', img: '/drone1.png' },
-        { id: 2, idName: 'container2', img: '/drone2.png' },
-        { id: 3, idName: 'container3', img: '/drone3.png' },
-        { id: 4, idName: 'container4', img: '/drone4.png' },
-    ];
-
-    const containers = [
-        { id: 'container1', initialScale: 2, finalScale: 0.5, duration: 2 },
-        { id: 'container2', initialScale: 2, finalScale: 0.5, duration: 2 },
-        { id: 'container3', initialScale: 1.5, finalScale: 0.7, duration: 2 },
-        { id: 'container4', initialScale: 1.5, finalScale: 0.6, duration: 2 },
-    ];
 
     useEffect(() => {
-        containers.forEach((container) => {
+        drones.forEach((container) => {
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: `#${container.id}`,
+                    trigger: `#${container.idName}`,
                     start: 'top center',
                     end: 'bottom 45%',
                     scrub: true,
@@ -34,11 +22,11 @@ const HeroSection = () => {
                 }
             });
 
-            tl.fromTo(`#${container.id}`,
-                { scale: container.initialScale, autoAlpha: 0 },
-                { scale: 1, autoAlpha: 1, duration: container.duration }
-            ).to(`#${container.id}`, {
-                scale: container.finalScale,
+            tl.fromTo(`#${container.idName}`,
+                { scale: 2, autoAlpha: 0 },
+                { scale: 1, autoAlpha: 1, duration: 2 }
+            ).to(`#${container.idName}`, {
+                scale: 0.5,
                 autoAlpha: 0,
                 duration: 2,
             });
@@ -46,10 +34,13 @@ const HeroSection = () => {
     }, []);
 
     return (
+        <>
+        <div className="radial-bg"></div>
+
         <div className='w-full min-h-screen relative'>
             {drones.map((drone) => (
                 <div key={drone.id} className="drone-container  flex justify-around">
-                    <Left uniqueId={drone.idName} />
+                    <Left uniqueId={drone.idName} droneName={drone.name} description={drone.description} rating={drone.rating}/>
                     <div
                         className={`w-[500px] h-[300px]  border-red-950 shrink-0 ${drone.id === 1 ? 'mt-60' : 'mt-32 scale-150 opacity-0'} flex items-center justify-center flex-col `}
                         id={drone.idName}
@@ -61,11 +52,12 @@ const HeroSection = () => {
                             </button>
                         </Link>
                     </div>
-                    <Right uniqueId={drone.idName}/>
+                    <Right uniqueId={drone.idName} specs={drone.specs}/>
                 </div>
             ))}
             <div className='w-full h-[280px]'></div>
         </div>
+        </>
     );
 };
 

@@ -1,37 +1,28 @@
-import { useState } from 'react'
-import './App.css'
-import HeroSection from './components/HeroSection'
-import Left from './components/Left'
-import Right from './components/Right'
-import Cursor from './components/Cursor'
+import './App.css';
+import HeroSection from './components/HeroSection';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ExplorePage from './components/ExplorePage'
-import Navbar from './components/Navbar'
-
+import ExplorePage from './components/ExplorePage';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   const router = createBrowserRouter([
     {
       path: "/",
-      // element: <><Navbar/><Test/></>,
-      element: <><HeroSection/></>,
+      element: <><Navbar /><HeroSection /><Footer /></>,
     },
     {
       path: "/explore/:id",
-      element: <ExplorePage/>,
+      element: <><Navbar /><ExplorePage /><Footer /></>,
     },
   ]);
 
   return (
-    <>
     <RouterProvider router={router} />
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

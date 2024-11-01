@@ -30,6 +30,8 @@ const ExplorePage = () => {
 
   return (
     <>
+    <div class="radial-bg"></div>
+    
       <div className='flex items-center justify-center h-screen w-screen flex-col'>
         <Canvas>
           <ambientLight />
