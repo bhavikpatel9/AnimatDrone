@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Right = ({ uniqueId, specs }) => {
+    // console.log(specs.length);
+    
   useEffect(() => {
       const tl = gsap.timeline({
           scrollTrigger: {
@@ -31,11 +33,11 @@ const Right = ({ uniqueId, specs }) => {
   return (
     <section id={`right-${uniqueId}`} className={` text-white text-3xl flex flex-col items-center justify-center gap-6 ${uniqueId === 'container1' ? 'mt-40' : 'mt-14 scale-150 opacity-0'} w-[300px] shrink-0`}>
         <h2>SPECS</h2>
-        <li className='opacity-[0.5]'>{specs.spec1}</li>
-        <li>{specs.spec2}</li>
-        <li>{specs.spec3}</li>
-        <li>{specs.spec4}</li>
-        <li className='opacity-[0.5]'>{specs.spec5}</li>
+        {
+            specs.map((spec, index) => (
+                <li key={index} className={index === 0 || index === specs.length -1 ? "opacity-[0.5]" : "opacity-1"}>{spec}</li>
+            ))
+        }
       </section>
   )
 }
