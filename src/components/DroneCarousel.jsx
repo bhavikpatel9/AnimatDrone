@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { droneCarouselImages, drones } from "../utils/Data";
 
 const DroneCarousel = () => {
     const items = [
@@ -31,7 +32,7 @@ const DroneCarousel = () => {
         if (sliderRef.current) {
             sliderRef.current.slickNext(); // Move to the next slide
             window.scrollBy({ top: 430, behavior: 'smooth' }); // Scroll down
-            if (currentSlide === items.length - 1) {
+            if (currentSlide === droneCarouselImages.length - 1) {
                 // If the current slide is the last one, scroll to the top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -44,7 +45,7 @@ const DroneCarousel = () => {
             window.scrollBy({ top: -430, behavior: 'smooth' }); // Scroll up
             if (currentSlide === 0) {
                 // If the current slide is the last one, scroll to the top
-                window.scrollTo({ top: (items.length)*(430), behavior: 'smooth' });
+                window.scrollTo({ top: (droneCarouselImages.length)*(430), behavior: 'smooth' });
             }
         }
     };
@@ -58,7 +59,7 @@ const DroneCarousel = () => {
                 &#10094; {/* Left arrow symbol */}
             </button>
             <Slider ref={sliderRef} {...settings}>
-                {items.map((item, index) => (
+                {droneCarouselImages.map((item, index) => (
                     <div key={index} className='flex items-center justify-center'>
                         <img src={item} alt="drone" className="w-[120px] h-[90px] " />
                     </div>

@@ -59,6 +59,15 @@ const drones = [
             "spec5",
         ],
     },
+//add more drones
 ];
 
-export {drones}
+const droneCarouselImages = [
+    '/drone1.png',
+    '/drone2.png',
+    '/drone3.png',
+    '/drone4.png',
+//add more drone images
+];
+
+export {drones, droneCarouselImages}

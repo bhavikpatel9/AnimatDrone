@@ -42,12 +42,12 @@ const HeroSection = () => {
                 <div key={drone.id} className="drone-container  flex justify-around">
                     <Left uniqueId={drone.idName} droneName={drone.name} description={drone.description} rating={drone.rating}/>
                     <div
-                        className={`w-[500px] h-[300px]  border-red-950 shrink-0 ${drone.id === 1 ? 'mt-60' : 'mt-32 scale-150 opacity-0'} flex items-center justify-center flex-col `}
+                        className={`w-[500px] h-[300px] shrink-0 ${drone.id === 1 ? 'mt-60' : 'mt-32 scale-150 opacity-0'} flex items-center justify-center flex-col `}
                         id={drone.idName}
                     >
-                        <img src={drone.img} alt={`Drone ${drone.id}`} />
+                        <img src={drone.img} alt={`Drone ${drone.id}`} className='w-[500px] h-[400px]'/>
                         <Link to={`/explore/${drone.id}`}>
-                            <button className='explore-button text-white text-lg font-semibold border-2 px-10 py-2 rounded-full'>
+                            <button className='explore-button absolute left-44 text-white text-lg font-semibold border-2 px-10 py-2 rounded-full'>
                                 Explore
                             </button>
                         </Link>
