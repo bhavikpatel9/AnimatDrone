@@ -33,13 +33,13 @@ const ExplorePage = () => {
     <>
     <div className="radial-bg"></div>
     
-      <div className='flex items-center justify-center h-screen w-screen flex-col'>
+      <div className='flex items-center justify-center h-screen w-screen flex-col cursor-pointer'>
         <Canvas>
           <ambientLight />
           <OrbitControls/>
           <Suspense fallback={<CanvasLoader />}>
             
-            {id === '1' && <Drone1 ref={droneRef} onLoad={handleDroneLoad} />}
+            {id === '1' && <Drone1 ref={droneRef} onLoad={handleDroneLoad}/>}
             {id === '2' && <Drone2 ref={droneRef} onLoad={handleDroneLoad} />}
             {id === '4' && <Drone4 ref={droneRef} onLoad={handleDroneLoad} />}
           </Suspense>
